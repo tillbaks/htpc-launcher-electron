@@ -14,8 +14,6 @@ if (isDev) {
   });
 }
 
-let isExiting = false;
-
 let win;
 function createWindow() {
   // Create the browser window with node integration
@@ -39,15 +37,14 @@ function createWindow() {
     })
   );
 
+  win.on("focus", () => win.webContents.send("window-focus"));
+  win.on("blur", () => win.webContents.send("window-blur"));
+
   // Open the DevTools only if app is in development
   // If in production, don't show.
   //if (isDev) win.webContents.openDevTools();
 
-  win.on("closed", () => {
-    if (!isExiting) createWindow();
-  });
-
-  ipcMain.on("run-cmd", (e, service) => {
+  ipcMain.on("run-cmd", (event, service) => {
     console.log("Running command " + service.name);
 
     const { spawn } = require("child_process");
@@ -66,12 +63,8 @@ function createWindow() {
     bat.on("exit", (code) => {
       console.log(code);
       // Handle exit
+      event.reply("run-cmd-exit", service);
     });
-  });
-
-  ipcMain.on("exit", (e, service) => {
-    isExiting = true;
-    app.quit();
   });
 }
 
@@ -82,8 +75,6 @@ app.whenReady().then(async () => {
   createWindow();
 });
 
-/*
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
-*/

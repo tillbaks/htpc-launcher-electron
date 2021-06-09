@@ -1,7 +1,9 @@
 <script>
+  import { onMount } from "svelte";
   import Config from "./Config.svelte";
   import Menu from "./Menu.svelte";
   import { launchables } from "./store";
+  import { setListener } from "./ElectronInterface";
 
   let config = $launchables.length === 0;
 
@@ -19,9 +21,25 @@
     updateTime();
     setInterval(updateTime, 15000);
   }
+
+  onMount(() => {
+    setListener(onEvent);
+  });
+
+  let focus = true;
+  function onEvent(event, ...args) {
+    switch (event) {
+      case "focus":
+        focus = true;
+        break;
+      case "blur":
+        focus = false;
+        break;
+    }
+  }
 </script>
 
-<main>
+<main class:focus>
   <div class="top-bar">
     <div class="clock" on:click={() => (config = !config)}>
       {currentTime}
@@ -44,7 +62,11 @@
 
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
-    animation: gradient 60s linear infinite alternate;
+  }
+
+  main.focus {
+    /** causes cpu/gpu usage so only do it when actually focused **/
+    animation: gradient 30s linear infinite alternate;
   }
 
   @keyframes gradient {
