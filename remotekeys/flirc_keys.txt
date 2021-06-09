@@ -1,0 +1,27 @@
+
+LG	    -	FLIRC KEY		    -	DEFAULT 	-	KODI		-	BRAVE		-	BRAVE YOUTUBE	-	BRAVE TWITCH
+-------------------------------------------------------------------------------------------------------------------------------------------
+CHUP	-	TAB
+CHDN	-	SHIFT+TAB
+UP	    -	UP		            -			    -			    -			    -				    -	F
+DOWN	-	DOWN		        -		    	-			    -			    -				    -	ALT-T
+LEFT	-	LEFT
+RIGHT	-	RIGHT
+OK	    -	ENTER
+BACK	-	ESC                 -			    -	BACKSPACE	-	ALT-LEFT	-	ESC
+PLAY	-	SPACE
+PAUSE	-	SPACE
+RED	    -	CTRL+ALT+F1		    -	ALT-F4
+GREEN	-	CTRL+ALT+F2		    -	
+YELLOW	-	CTRL+ALT+F3		    -	
+BLUE	-	CTRL+ALT+F4		    -	
+1	    -	CTRL+ALT+1		    -	
+2	    -	CTRL+ALT+2		    -	
+3	    -	CTRL+ALT+3		    -	
+4	    -	CTRL+ALT+4		    -	
+5	    -	CTRL+ALT+5		    -	
+6	    -	CTRL+ALT+6		    -	
+7	    -	CTRL+ALT+7		    -	
+8	    -	CTRL+ALT+8		    -	
+9	    -	CTRL+ALT+9		    -	
+0	    -	CTRL+ALT+0		    -	

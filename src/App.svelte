@@ -39,7 +39,7 @@
     display: grid;
     grid-template-rows: auto 1fr;
     place-items: end center;
-    padding: 10vh;
+    padding: 5rem;
     color: hsl(0, 0%, 95%);
 
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);

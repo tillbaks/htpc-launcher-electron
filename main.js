@@ -22,9 +22,9 @@ function createWindow() {
   win = new BrowserWindow({
     title: "HTPC Startpage",
     frame: false,
-    fullscreen: false,
-    width: 1280,
-    height: 720,
+    fullscreen: !isDev,
+    width: 960,
+    height: 540,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

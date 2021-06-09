@@ -60,16 +60,18 @@
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
     gap: 1rem;
+    --icon-size: 3rem;
   }
   .buttons > button {
     display: grid;
     place-items: center;
     margin: 0;
-    padding: 3vh;
+    padding: 1rem;
     outline: none;
     border: 0;
     border-radius: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 100;
     color: hsl(0, 0%, 95%);
     border: 1px solid rgba(255, 255, 255, 0);
     background-color: transparent;

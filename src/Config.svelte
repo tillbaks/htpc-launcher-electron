@@ -42,8 +42,8 @@
       <div>Arguments</div>
       <div class="arguments">
         {#if l.args}
-          {#each l.args as _, index}
-            <input type="text" bind:value={l.args[index]} />
+          {#each l.args as arg, index}
+            <input type="text" bind:value={arg} />
             <button on:click={() => removeArgument(l, index)}
               ><Icon icon="mdiDeleteForever" /></button
             >
