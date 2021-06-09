@@ -1,8 +1,20 @@
 SetTitleMatchMode 2
 
 ^!F1::
-    if !WinActive("HTPC Launcher")
+    if WinActive("ahk_class Kodi")
+        Send s
+    else if !WinActive("HTPC Launcher")
         Send !{F4}
+return
+
+^!F3::
+    if WinActive("ahk_class Kodi")
+        Send i
+return
+
+^!F4::
+    if WinActive("ahk_class Kodi")
+        Send c
 return
 
 $Up::
@@ -29,3 +41,4 @@ $Escape::
     else
         Send {Escape}
 return
+

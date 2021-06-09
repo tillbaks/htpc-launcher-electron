@@ -14,7 +14,7 @@ PAUSE	-	SPACE
 RED	    -	CTRL+ALT+F1		    -	ALT-F4
 GREEN	-	CTRL+ALT+F2		    -	
 YELLOW	-	CTRL+ALT+F3		    -	
-BLUE	-	CTRL+ALT+F4		    -	
+BLUE	-	CTRL+ALT+F4		    -	            -   C
 1	    -	CTRL+ALT+1		    -	
 2	    -	CTRL+ALT+2		    -	
 3	    -	CTRL+ALT+3		    -	
