@@ -40,13 +40,29 @@
       }
     }
   }
+
+  let isPressed = false;
+  function buttonClicked(e, l) {
+    if (isPressed) return;
+    isPressed = true;
+    e.target.classList.add("pressed");
+
+    runCommand(l);
+
+    setTimeout(() => {
+      e.target.classList.remove("pressed");
+    }, 200);
+    setTimeout(() => {
+      isPressed = false;
+    }, 5000);
+  }
 </script>
 
 <svelte:window on:keydown={onKeyDown} />
 
 <div class="buttons" bind:this={buttons}>
   {#each $launchables.filter((l) => l.show) as l}
-    <button on:click={() => runCommand(l)}>
+    <button on:click={(e) => buttonClicked(e, l)}>
       <Icon icon={l.icon} />
       <span>{l.name}</span>
     </button>
@@ -83,6 +99,10 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     transform: scale(1.2);
     opacity: 1;
+  }
+  .buttons > button:global(.pressed:focus) {
+    transform: scale(0.8);
+    opacity: 0.5;
   }
   .buttons > button > span {
     margin-top: 1rem;
