@@ -1,44 +1,36 @@
+#SingleInstance, force
 SetTitleMatchMode 2
 
-^!F1::
-    if WinActive("ahk_class Kodi")
-        Send s
-    else if !WinActive("HTPC Launcher")
-        Send !{F4}
-return
+GroupAdd, apps, ahk_class Kodi
+GroupAdd, apps, Twitch - Brave
+GroupAdd, apps, YouTube on TV - Brave
+GroupAdd, apps, ahk_exe steam.exe
+GroupAdd, apps, ahk_exe brave.exe
+GroupAdd, apps, HTPC Launcher
 
-^!F3::
-    if WinActive("ahk_class Kodi")
-        Send i
-return
+#IfWinActive ahk_class Kodi
+^!F1::Send s
+^!F3::Send i
+^!F4::Send c
+Escape::Send {BackSpace}
 
-^!F4::
-    if WinActive("ahk_class Kodi")
-        Send c
-return
+#IfWinActive Twitch - Brave
+Up::Send f
+Down::Send !t
 
-$Up::
-    if WinActive("Twitch - Brave")
-        Send f
-    else
-        Send {Up}
-return
+#IfWinActive YouTube on TV - Brave
+Escape::Send {Escape}
 
-$Down::
-    if WinActive("Twitch - Brave")
-        Send !t
-    else
-        Send {Down}
-return
+#IfWinActive ahk_exe brave.exe
+Escape::Send !{Left}
 
-$Escape::
-    if WinActive("YouTube on TV - Brave")
-        Send {Escape}
-    else if WinActive("ahk_exe brave.exe")
-        Send !{Left}
-    else if WinActive("ahk_class Kodi")
-        Send {BackSpace}
-    else
-        Send {Escape}
-return
+#IfWinNotActive HTPC Launcher
+^!F1::Send !{F4}
 
+; If no HTPC apps are the active when pressing these keys
+; it will activate the first open window in the group
+#IfWinNotActive, ahk_group apps
+Escape::GroupActivate, apps
+^!F1::GroupActivate, apps
+
+Return
